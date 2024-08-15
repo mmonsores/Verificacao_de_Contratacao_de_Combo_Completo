@@ -1,0 +1,33 @@
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class VerificaCombo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Leitura da entrada com os serviços contratados
+        String entrada = scanner.nextLine().trim();
+        
+        // Criação de um conjunto para armazenar os serviços contratados
+        Set<String> servicosContratados = new HashSet<>();
+        for (String servico : entrada.split(",")) {
+            servicosContratados.add(servico.trim());
+        }
+        
+        // Conjunto com os serviços necessários para o combo completo
+        Set<String> comboCompleto = new HashSet<>();
+        comboCompleto.add("movel");
+        comboCompleto.add("banda larga");
+        comboCompleto.add("tv");
+        
+        // Verificação se todos os serviços necessários estão presentes
+        if (servicosContratados.containsAll(comboCompleto)) {
+            System.out.println("Combo Completo");
+        } else {
+            System.out.println("Combo Incompleto");
+        }
+        
+        scanner.close();
+    }
+}
